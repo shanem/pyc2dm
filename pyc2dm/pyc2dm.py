@@ -117,7 +117,7 @@ class C2DM(object):
             "collapse_key": collapse_key,
         }
         for k, v in data.iteritems():
-            args["data.%s" % k] = str(v).encode('utf8')
+            args["data.%s" % k] = v.encode('utf8')
         headers = {'Authorization': 'GoogleLogin auth=' + self.get_client_token()}
         data = urllib.urlencode(args)
         request = urllib2.Request(C2DM.C2DM_API_SERVER, data, headers)
